@@ -1,0 +1,137 @@
+<%- include("../header.ejs") %> 
+<div class="container">
+<div class="card">
+    <div class="card-body">
+      <form action="/jobinsert" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="title">Job Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            placeholder="Enter job title"
+            name="title"
+          />
+        </div>
+        <div class="form-group">
+          <label for="title">Job category</label>
+          <select class="form-control" id="employmentType" name="category">
+            <% cat.forEach((c)=>{%>
+      <option value="<%= c.name %>" ><%= c.name %></option>
+
+           <% })%>
+           
+          </select>
+         
+        </div>
+        <div class="form-group">
+          <label for="description">Job Description</label>
+          <textarea
+            class="form-control"
+            id="description"
+            rows="4"
+            placeholder="Enter job description"
+            name="description"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="company">Company</label>
+          <input
+            type="text"
+            class="form-control"
+            id="company"
+            placeholder="Enter company name"
+            name="Company"
+          />
+        </div>
+        <div class="form-group">
+          <label for="vacancy"> Vacancy</label>
+          <input
+            type="text"
+            class="form-control"
+            id="company"
+            placeholder="Enter company name"
+            name="vacancy"
+          />
+        </div>
+        <div class="form-group">
+          <label for="requiredskill">Required_Skill</label>
+          <input
+            type="text"
+            class="form-control"
+            id="company"
+            placeholder="Enter company name"
+            name="requiredskill"
+          />
+        </div>
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input
+            type="text"
+            class="form-control"
+            id="location"
+            placeholder="Enter job location"
+            name="location"
+          />
+        </div>
+        <div class="form-group">
+          <label for="employmentType">Employment Type</label>
+          <select class="form-control" id="employmentType" name="jobtype">
+            <option>Full-Time</option>
+            <option>Part-Time</option>
+            <option>Contract</option>
+            <option>Temporary</option>
+            <option>Internship</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="qualification">Qualification</label>
+          <input
+            type="text"
+            class="form-control"
+            id="qualification"
+            placeholder="qualification"
+            name="qualification"
+          />
+        </div>
+        <div class="form-group">
+          <label for="salary">Salary</label>
+          <input
+            type="text"
+            class="form-control"
+            id="salary"
+            placeholder="Enter salary"
+            name="salary"
+          />
+        </div>
+        <div class="form-group">
+          <label for="postedDate">Posted Date</label>
+          <input
+            type="date"
+            class="form-control"
+            id="postedDate"
+            name="postedDate"
+          />
+        </div>
+        <div class="form-group">
+          <label for="closingDate">Closing Date</label>
+          <input
+            type="date"
+            class="form-control"
+            id="closingDate"
+            name="closingDate"
+          />
+        </div>
+        <div class="form-group">
+          <label for="">Image</label>
+          <input type="file" name="image" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">
+          Submit
+        </button>
+      </form>
+    </div>
+</div>
+</div>
+<!-- /.content-wrapper --> 
+<%- include("../footer.ejs") %>

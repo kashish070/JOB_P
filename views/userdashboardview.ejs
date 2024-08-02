@@ -1,0 +1,99 @@
+<%- include("../header.ejs") %> <%- include("../sidebar.ejs") %>
+
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Apply Job</h1>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Display</li>
+          </ol>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+  <!-- </div> -->
+  <div class="card">
+    <div class="card-header">
+      <!-- <h3 class="card-title">Category Display</h3> -->
+      <!-- <button
+        type="button"
+        class="btn btn-info"
+        data-toggle="modal"
+        data-target="#category"
+      >
+        Add Category
+      </button> -->
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Company Name</th>
+            <th>Cover Letter</th>
+            <th>Image</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% d.forEach((item)=>{%>
+
+          <tr>
+            <td><%= item.id %></td>
+            <td><%= item.name %></td>
+            <td><%= item.email %></td>
+            <td><%= item.companyname %></td>
+            <td><%= item.coverletter %></td>
+            
+            
+            <td>
+              <img src="<%= item.image.url %>" width="50" height="50" alt="" />
+            </td>
+            <td>
+              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#category">
+               Approved
+              </button>
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#category">
+                Reject
+               </button>
+            </td>
+            
+          </tr>
+
+          <% }) %>
+        </tbody>
+        <!-- <tfoot>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Image</th>
+            <th></th>
+          </tr>
+        </tfoot> -->
+      </table>
+    </div>
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
+  <!-- /.card -->/
+
+ 
+  <!-- /.modal -->
+</div>
+<!-- /.content-wrapper -->
+
+<%- include("../footer.ejs") %>

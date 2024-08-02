@@ -1,0 +1,263 @@
+<%- include("../header.ejs") %> <%- include("../sidebar.ejs") %>
+
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Job Display</h1>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Display</li>
+          </ol>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+  <!-- </div> -->
+  <div class="card">
+    <div class="card-header">
+      <!-- <h3 class="card-title">Category Display</h3> -->
+      <button
+        type="button"
+        class="btn btn-info"
+        data-toggle="modal"
+        data-target="#job"
+      >
+        Add Job
+      </button>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Company</th>
+            <th>Location</th>
+            <!-- <th>Employment_Type</th> 
+                <th>Vacancy</th>
+                <th>Required_Skill</th>
+                 <th>Salary</th> 
+                 <th>Qualification</th>
+                 <th>PostedDate</th> 
+                 <th>ClosingDate</th> -->
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% re.forEach((item)=>{ %>
+            <tr>
+              
+                <td><%= item.title %></td>
+                <td><%= item.description %></td>
+                <td><%= item.Company %></td>
+                <td><%= item.location %></td>
+
+                <td class="d-flex justify-content-center align-items-center">
+                    <a href="/admin/job/view/<%= item.id %>" class="btn btn-info mx-1"
+                      ><i class="fa-solid fa-eye"></i
+                    ></a>
+                    <br>
+                    <a href="/admin/job/edit/<%= item.id %>" class="btn btn-success mx-1"
+                      ><i class="fa-solid fa-pen-to-square"></i
+                    ></a>
+                    <br>
+                    <a href="/jobdelete/<%= item.id %>" class="btn btn-danger mx-1"
+                      ><i class="fa-solid fa-trash"></i
+                    ></a>
+                  </td>
+            </tr>
+        <%  }) %>
+        </tbody>
+        
+        <!-- <tfoot>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Image</th>
+            <th></th>
+          </tr>
+        </tfoot> -->
+      </table>
+    </div>
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
+  <!-- /.card -->/
+
+  <div class="modal fade" id="job">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Add Job</h4>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/jobinsert" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="company">Company</label>
+              <input
+              required
+                type="text"
+                class="form-control"
+                id="company"
+                placeholder="Enter company name"
+                name="Company"
+              />
+            </div>
+            <div class="form-group">
+              <label for="title">Job Title</label>
+              <input
+              required
+                type="text"
+                class="form-control"
+                id="title"
+                placeholder="Enter job title"
+                name="title"
+              />
+            </div>
+            <div class="form-group">
+              <label for="title">Job category</label>
+              <select class="form-control" required id="employmentType" name="category">
+                <% cat.forEach((c)=>{%>
+          <option value="<%= c.name %>" ><%= c.name %></option>
+
+               <% })%>
+               
+              </select>
+             
+            </div>
+            <div class="form-group">
+              <label for="description">Job Description</label>
+              <textarea
+              required
+                class="form-control"
+                id="description"
+                rows="4"
+                placeholder="Enter job description"
+                name="description"
+              ></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label for="vacancy"> Vacancy</label>
+              <input
+              required
+                type="text"
+                class="form-control"
+                id="company"
+                placeholder="Enter company name"
+                name="vacancy"
+              />
+            </div>
+            <div class="form-group">
+              <label for="requiredskill">Required_Skill</label>
+              <input
+              required
+                type="text"
+                class="form-control"
+                id="company"
+                placeholder="Enter company name"
+                name="required_skills"
+              />
+            </div>
+            <div class="form-group">
+              <label for="location">Location</label>
+              <input
+              required
+                type="text"
+                class="form-control"
+                id="location"
+                placeholder="Enter job location"
+                name="location"
+              />
+            </div>
+            <div class="form-group">
+              <label for="employmentType">Employment Type</label>
+              <select class="form-control"required id="emloyment_type" name="emloyment_type">
+                <option>Employment Type </option>
+                <option>Part-Time</option>
+                <option>FullTime</option>
+                <option>Contract</option>
+                <option>Temporary</option>
+                <option>Internship</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="qualification">Qualification</label>
+              <input
+              required
+                type="text"
+                class="form-control"
+                id="qualification"
+                placeholder="qualification"
+                name="qualification"
+              />
+            </div>
+            <div class="form-group">
+              <label for="salary">Salary</label>
+              <input
+              required
+                type="text"
+                class="form-control"
+                id="salary"
+                placeholder="Enter salary"
+                name="salary"
+              />
+            </div>
+            <div class="form-group">
+              <label for="postedDate">Posted Date</label>
+              <input
+              required
+                type="date"
+                class="form-control"
+                id="postedDate"
+                name="postedDate"
+              />
+            </div>
+            <div class="form-group">
+              <label for="closingDate">Closing Date</label>
+              <input
+              required
+                type="date"
+                class="form-control"
+                id="closingDate"
+                name="closingDate"
+              />
+            </div>
+            <div class="form-group">
+              <label for="">Image</label>
+              <input type="file" required name="image" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+</div>
+<!-- /.content-wrapper -->
+
+<%- include("../footer.ejs") %>

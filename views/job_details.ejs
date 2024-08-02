@@ -1,0 +1,114 @@
+<%- include("./header.ejs")%>
+
+    <!-- Header End -->
+    <div class="container-xxl py-5 bg-dark page-header mb-5">
+        <div class="container my-5 pt-5 pb-4">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Job Detail</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb text-uppercase" style="background-color: transparent;">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Job Detail</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Job Detail Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row gy-5 gx-4">
+                <div class="col-lg-8">
+                    <div class="d-flex align-items-center mb-5">
+                        <img class="flex-shrink-0 img-fluid border rounded" src="<%= jdetails.image.url %>" alt=""
+                            style="width: 80px; height: 80px;">
+                        <div class="text-start ps-4">
+                            <h3 class="mb-3"><%=jdetails.title %></h3>
+                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i><%=jdetails.location %></span>
+                            <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i><%=jdetails.jobtype %>
+                                </span>
+                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i><%=jdetails.salary %>
+                                </span>
+                        </div>
+                    </div>
+
+                    <div class="mb-5">
+                        <h3>Description</h3>
+                        <h6 class="mb-3"><%=jdetails.description %></h6>
+                        
+                        <h3>Qualification</h3>
+                        <h6 class="mb-3"><%=jdetails.qualification %></h6>
+                        
+                        
+                    </div>
+
+                    <div class="">
+                        <h4 class="mb-4">Apply For The Job</h4>
+                        <% if(msg.length>0) { %>
+                            <div class="alert alert-success"><%= msg %></div>
+                            <%} %> <% if(msg1.length>0) { %>
+                            <div class="alert alert-danger"><%= msg1 %></div>
+                            <%} %>
+                        <form method="post" action="/applyinsert" enctype="multipart/form-data">
+                            <div class="row g-3">
+
+                                <input type="hidden" name="emp_id" value="<%=jdetails.emp_id %>">
+                                
+                                
+
+                                <div class="col-12">
+                                    <input type="text" class="form-control" readonly placeholder="Your Name" name="companyname" value="<%=jdetails.Company%>" >
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control" readonly placeholder="Your title" name="jobtitle" value="<%=jdetails.title%>" >
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" class="form-control" placeholder="Your Name" readonly name="name" value="<%= n %>" >
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="email" class="form-control" placeholder="Your Email" readonly name="email" value="<%= e %>">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" class="form-control" placeholder="Portfolio Website / Github Link" name="website" value="">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="file" class="form-control bg-white"  name="image" accept="image/gif, image/jpeg, image/png, image/pdf" >
+                                    <span>Resume Upload Only</span>
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control" rows="5" placeholder="Coverletter" name="coverletter"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100" type="submit">Apply Now</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="bg-light rounded p-5 mb-4 wow slideInUp" data-wow-delay="0.1s">
+                        <h4 class="mb-4">Job Summery</h4>
+                       
+                        <p><i class="fa fa-angle-right text-primary me-2"></i>Vacancy:<%= jdetails.vacancy  %></p>
+                        <p><i class="fa fa-angle-right text-primary me-2"></i>Required Skills:<%= jdetails.required_skills  %></p>
+                        <p><i class="fa fa-angle-right text-primary me-2"></i>Job Nature:<%= jdetails.emloyment_type %></p>
+                        <p><i class="fa fa-angle-right text-primary me-2"></i>Salary:<%= jdetails.salary%></p>
+                        <p><i class="fa fa-angle-right text-primary me-2"></i>Location:<%= jdetails.location%></p>
+                        <p class="m-0"><i class="fa fa-angle-right text-primary me-2"></i>Date Line:<%= jdetails.posted_date%></p>
+                    </div>
+                    <div class="bg-light rounded p-5 wow slideInUp" data-wow-delay="0.1s">
+                       <h3>Company Details</h3>
+                       
+                        <h6 class="mb-4">Company Name:<%=jdetails.Company%></h6>
+                        <p class="m-0">
+                            </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Job Detail End -->
+    <%- include("./footer.ejs")%>

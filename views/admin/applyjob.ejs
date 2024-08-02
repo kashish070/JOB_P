@@ -1,0 +1,89 @@
+<%- include("./header.ejs") %> <%- include("./sidebar.ejs") %>
+
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Job Display</h1>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Display</li>
+          </ol>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+  <!-- </div> -->
+  <div class="card">
+    <div class="card-header">
+      <!-- <h3 class="card-title">Category Display</h3> -->
+      <button
+        type="button"
+        class="btn btn-info"
+        data-toggle="modal"
+        data-target="#job"
+      >
+        Add Job
+      </button>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>CompanyName</th>
+            <th>Status</th>
+            <!-- <th>Action</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <% a.forEach((item)=>{ %>
+          <tr>
+            <td><%=item.id%></td>
+            <td><%= item.name %></td>
+            <td><%= item.email %></td>
+            <td><%= item.companyname %></td>
+            <td><%= item.status %></td>
+
+            <!-- <td class="d-flex justify-content-center align-items-center">
+              <a href="/admin/job/view/<%= item.id %>" class="btn btn-info mx-1"
+                ><i class="fa-solid fa-eye"></i
+              ></a>
+              <br />
+              <a
+                href="/admin/job/edit/<%= item.id %>"
+                class="btn btn-success mx-1"
+                ><i class="fa-solid fa-pen-to-square"></i
+              ></a>
+              <br />
+              <a href="/jobdelete/<%= item.id %>" class="btn btn-danger mx-1"
+                ><i class="fa-solid fa-trash"></i
+              ></a>
+            </td> -->
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
+  <!-- /.card -->/
+
+  <!-- /.modal -->
+</div>
+<!-- /.content-wrapper -->
+
+<%- include("./footer.ejs") %>

@@ -1,0 +1,120 @@
+<%- include("./header.ejs")%>
+
+    <section >
+        <div class="container py-5">
+            <div class="row">
+                <div class="col">
+                    <!-- Breadcrumb -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card mb-4 mt-4">
+                        <div class="card-body text-center">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar" class="rounded-circle img-fluid" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                            <h5 class="my-3">John Smith</h5>
+                            <div class="d-flex justify-content-center mb-2">
+                                <!-- Follow and Message buttons -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card mb-4 mt-3">
+                        <div class="card-body">
+                           
+                            
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Full Name</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">Johnatan Smith</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Email</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">example@example.com</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Mobile</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">(098) 765-4321</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Address</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                                </div>
+                               
+                            </div>
+                             
+                            <center>
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#editModal">Edit</button>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Profile</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" class="form-control" id="fullName" value="Johnatan Smith">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" value="example@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile">Mobile</label>
+                            <input type="text" class="form-control" id="mobile" value="(098) 765-4321">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control" id="address" value="Bay Area, San Francisco, CA">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Image</label>
+                            <input type="file" class="form-control" id="image" value="">
+                        </div>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <%- include("./footer.ejs")%>

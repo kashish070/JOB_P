@@ -1,0 +1,30 @@
+<%- include("../header.ejs") %> 
+<div class="container">
+<div class="card">
+    <div class="card-body">
+        <form action="/admin/category/update/<%= d.id %>" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="">Name</label>
+              <input type="text" name="name" class="form-control," required value="<%d.name%>">
+
+            </div>
+           
+            <div class="form-group">
+              <label for="">Image</label>
+              <input type="file" name="image" class="form-control" required value="<%d.image%>">
+
+            </div>
+            <button class="btn btn-info" type="submit">Submit</button>
+            <center> 
+                <a href="/admin/category/display" class="btn btn-info mb-3">Back</a> 
+              </center>
+
+
+
+
+          </form>
+    </div>
+</div>
+</div>
+<!-- /.content-wrapper --> 
+<%- include("../footer.ejs") %>

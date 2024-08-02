@@ -1,0 +1,199 @@
+<%- include("./header.ejs")%>
+
+    <!-- Sidebar and Content -->
+    <div class="container-fluid">
+        <div class="row">
+            <main role="main" class="col-12 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2 text-white">Dashboard</h1>
+                </div>
+
+                <!-- Cards -->
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>User Profile</span>
+                                <a href="/logout" class="btn btn-danger btn-sm">Logout</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img src="<%= image.url %>" class="rounded-circle mr-3" alt="User Image">
+                                    <div>
+                                        <p class="mb-0"><strong><%=n%></strong></p>
+                                        <p class="mb-0 text-muted"><%=email %></p>
+                                    </div>
+                                </div>
+                               
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProfileModal">
+                                    Edit Profile
+                                  </button>
+                                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#changepassword">
+                                    Change Password
+                                  </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="card">
+                            <div class="card-header">Notifications</div>
+                            <div class="card-body">
+                                <p>View the notifications from job portal cell</p>
+                                <a href="#" class="btn btn-info">See Notifications</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <div class="card">
+                            <div class="card-header">Display Job</div>
+                            <div class="card-body">
+                                <p>Find suitable job openings and apply</p>
+                                <a href="#" data-toggle="modal" data-target="#displayjob" class="btn btn-success">Display</a>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="col-lg-6 mb-4">
+                        <div class="card">
+                            <div class="card-header">View Status</div>
+                            <div class="card-body">
+                                <p>View status of the job portal / complaint posted by you</p>
+                                <a href="/userdashboardview" class="btn btn-primary">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <!-- Button to trigger modal -->
+
+  
+  <!-- editProfileModal -->
+  <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Edit Profile Form -->
+          <form action="/updateProfile" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="editName">Name</label>
+              <input type="text" value="<%=n%>" class="form-control" id="editName" placeholder="Enter your name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="editEmail">Email address</label>
+              <input type="email" value="<%=email%>" readonly class="form-control" id="editEmail" placeholder="Enter your email" name="email" required>
+            </div>
+           
+            <div class="form-group">
+                <label for="editImage">Profile Image</label>
+                <input type="file" class="form-control-file" id="editImage" name="image">
+              </div>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+          </form>
+        </div>
+       
+          </div>
+      </div>
+    </div>
+  </div>
+ <!--changepassword-->
+  <div class="modal fade" id="changepassword" tabindex="-1" aria-labelledby="changepassword" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="changepassword">Change Password</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+  <div class="modal-body">
+    <!-- Edit Password Form -->
+    <form action="/changepassword" method="post">
+      <div class="form-group">
+        <label for="editName">Old Password</label>
+        <input type="password" class="form-control" name="op" id="editName" placeholder="old password">
+      </div>
+      <div class="form-group">
+        <label for="editEmail">New Password</label>
+        <input type="password" class="form-control" name="np" id="editEmail" placeholder="new password">
+      </div>
+      <div class="form-group">
+        <label for="editAddress">confirm Password</label>
+        <input type="password" class="form-control" name="cp" id="editAddress" placeholder="confirm_password">
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+    </div>
+    </div>
+    </div>
+  </div>
+
+  <!--job diplay-->
+  <div class="modal fade" id="displayjob" tabindex="-1" aria-labelledby="changepassword" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="changepassword">Change Password</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+  <div class="modal-body">
+    <!-- Edit Profile Form -->
+     <table class="table table-bordered text-center">
+      <tr>
+        <th>S.No</th>
+        <th>Name</th>
+        <th>Company</th>
+        <th>Status</th>
+        <th>Message</th>
+        <th>Action</th>
+      </tr>
+   <% i=1 %>
+   <% displayjob.forEach((d)=>{ %>
+    <tr>
+      <td><%= i++ %></td>
+      <td><%= d.name %></td>
+      <td><%= d.companyname %></td>
+      <td><%= d.status %></td>
+      <td><%= d.message %></td>
+      <td>
+        <a href="" class="btn btn-info">View</a>
+        <a href="" class="btn btn-danger">Delete</a>
+      </td>
+        
+    </tr>
+
+  <%  }) %>
+      
+      
+
+     </table>
+      
+      
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+    </div>
+    </div>
+    </div>
+  </div>
+  <!--job end-->
+    
+
+  
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <%- include("./footer.ejs")%>

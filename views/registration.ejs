@@ -1,0 +1,127 @@
+<%-include("header.ejs") %> <br /><br /><br />
+<div class="container-fluid">
+  <div class="container">
+    <div class="card shadow-lg">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-6">
+            <img
+              class="bgcolor"
+              src="/img/registration.png"
+              style="width: 100%; height: 100%; background-size: cover"
+              alt=""
+            />
+          </div>
+          <div class="col-md-6">
+            <span class="d-flex justify-content-center"
+              ><img
+                src="/img/logo.png"
+                style="width: 150px; height: 100px"
+                class="mb-3"
+                alt=""
+            /></span>
+            <h4 class="text-center">Create an Account</h4>
+            <form
+              id="frm"
+              action="/insertuser"
+              method="post"
+              enctype="multipart/form-data"
+            >
+              <div class="d-flex justify-content-center">
+                <div class="col-md-7">
+                  <select name="role" id="" class="form-control my-3 py-2">
+                    <option value="">Select Role</option>
+                    <option value="Job Seeker">Job Seekers</option>
+                    <option value="Employers">Employers</option>
+                  </select>
+                </div>
+              </div>
+              <div class="d-flex justify-content-center">
+                <div class="col-md-7">
+                  <input
+                    type="text"
+                    name="n"
+                    placeholder="Username"
+                    class="form-control my-3 py-2 px-3"
+                  />
+                </div>
+              </div>
+              <div class="d-flex justify-content-center">
+                <div class="col-lg-7">
+                  <input
+                    type="email"
+                    name="e"
+                    placeholder="Email Address"
+                    class="form-control my-3 py-2 px-3"
+                  />
+                </div>
+              </div>
+              <div class="d-flex justify-content-center">
+                <div class="col-lg-7">
+                  <input
+                    type="password"
+                    name="p"
+                    placeholder="Password"
+                    class="form-control my-3 py-2 px-3"
+                  />
+                </div>
+              </div>
+              <div class="d-flex justify-content-center">
+                <div class="col-lg-7">
+                  <input
+                    type="password"
+                    name="cp"
+                    placeholder="Confirm Your Password"
+                    class="form-control my-3 py-2 px-3"
+                  />
+                </div>
+              </div>
+              <div class="d-flex justify-content-center">
+                <div class="col-lg-7">
+                  <div class="mb-3">
+                    <label for="formFile" class="form-label"
+                      >Choose a profile picture:</label
+                    >
+                    <input
+                      class="form-control"
+                      type="file"
+                      id="image"
+                      name="image"
+                      accept="image/*"
+                      placeholder="image"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="d-flex justify-content-center">
+                  <div class="col-lg-7">
+                    <button
+                      type="submit"
+                      value="Submit"
+                      class="btn btn-dark my-3"
+                    >
+                      Register
+                    </button>
+                    <br />
+                    <a href="/"> Back to login</a>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"
+></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+<script src="/js/script.js"></script>
+<br /><br /><br />
+<%-include("footer.ejs") %>
